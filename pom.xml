@@ -19,3 +19,117 @@
     <finalName>jsfSampleCode</finalName>
   </build>
 </project>
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- *********************************************************************** -->
+<!-- FILE:        pom.xml                                                    -->
+<!-- DESCRIPTION: Maven3 project object model                                -->
+<!-- *********************************************************************** -->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+  <!-- ===================================================================== -->
+  <!-- P R O J E C T    A T T R I B U T E S                                  -->
+  <!-- ===================================================================== -->
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>my.example.webapp</groupId>
+  <artifactId>jsfSampleCode</artifactId>
+  <packaging>jar</packaging>
+  <version>1.0-SNAPSHOT</version>
+  <name>jsfSampleCode Maven Webapp</name>
+  <url>http://maven.apache.org</url>
+
+  <!-- ===================================================================== -->
+  <!-- P R O P E R T I E S                                                   -->
+  <!-- ===================================================================== -->
+  <properties>
+    <user.lib>${basedir}/lib</user.lib>
+    <default.encoding>UTF-8</default.encoding>
+    <java.version>1.7</java.version>
+    <jsf-mojarra.version>2.1.6</jsf-mojarra.version>
+    <jetty.version>8.0.0.M3</jetty.version>
+      <jettyVersion>9.0.2.v20130417</jettyVersion> /// Adapt this to a version found on http://repo.maven.apache.org/maven2/org/eclipse/jetty/jetty-maven-plugin/
+    </properties>
+
+  <!-- ===================================================================== -->
+  <!-- R E P O S I T O R I E S                                               -->
+  <!-- ===================================================================== -->
+	<repositories>
+		<repository>
+			<id>maven2-repository.dev.java.net</id>
+			<name>Java.net Repository for Maven</name>
+			<url>http://download.java.net/maven/2</url>
+		</repository>
+	</repositories>
+
+  <!-- ===================================================================== -->
+  <!-- D I S T R I B U T I O N    M A N A G E M E N T                        -->
+  <!-- ===================================================================== -->
+
+  <!-- ===================================================================== -->
+  <!-- B U I L D                                                             -->
+  <!-- ===================================================================== -->
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.eclipse.jetty</groupId>
+        <artifactId>jetty-maven-plugin</artifactId>
+        <version>9.0.3.v20130506</version>
+				<configuration>
+					<scanIntervalSeconds>3</scanIntervalSeconds>
+					<webAppConfig>
+						<contextPath>/${project.artifactId}</contextPath>
+					</webAppConfig>
+
+				</configuration>
+        </plugin>
+    </plugins>
+  </build>
+  <!-- ===================================================================== -->
+  <!-- D E P E N D E N C I E S                                               -->
+  <!-- ===================================================================== -->
+  <dependencies>
+<dependency>
+	<groupId>org.eclipse.jetty</groupId>
+	<artifactId>jetty-project</artifactId>
+	<version>9.0.3.v20130506</version>
+</dependency>
+
+    <!-- Mojarra(RI) -->
+	<dependency>
+		<groupId>com.sun.faces</groupId>
+		<artifactId>jsf-api</artifactId>
+		<version>${jsf-mojarra.version}</version>
+	</dependency>
+	<dependency>
+		<groupId>com.sun.faces</groupId>
+		<artifactId>jsf-impl</artifactId>
+		<version>${jsf-mojarra.version}</version>
+	</dependency>
+
+	<!-- Servlet/JSP API （JavaEE6） -->
+	<dependency>
+		<groupId>javax.servlet</groupId>
+		<artifactId>javax.servlet-api</artifactId>
+		<version>3.0.1</version>
+		<scope>provided</scope>
+	</dependency>
+
+	<dependency>
+		<groupId>log4j</groupId>
+		<artifactId>log4j</artifactId>
+		<version>1.2.16</version>
+	</dependency>
+
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+
+
+</project>
