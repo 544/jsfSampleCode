@@ -23,10 +23,10 @@
   <properties>
     <user.lib>${basedir}/lib</user.lib>
     <default.encoding>UTF-8</default.encoding>
-    <java.version>1.6</java.version>
+    <java.version>1.7</java.version>
     <jsf-mojarra.version>2.1.6</jsf-mojarra.version>
     <jetty.version>8.0.0.M3</jetty.version>
-      <jettyVersion>9.0.2.v20130417</jettyVersion> 
+      <jettyVersion>9.0.2.v20130417</jettyVersion>
     </properties>
 
   <!-- ===================================================================== -->
@@ -73,6 +73,19 @@
 		<artifactId>javax.servlet-api</artifactId>
 		<version>3.0.1</version>
 		<scope>provided</scope>
+	</dependency>
+
+	<!-- Srping context -->
+	<dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-context</artifactId>
+		<version>3.1.0.RELEASE</version>
+	</dependency>
+	<!-- Srping web -->
+	<dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-web</artifactId>
+		<version>3.1.0.RELEASE</version>
 	</dependency>
 
 	<dependency>
