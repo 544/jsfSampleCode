@@ -57,9 +57,4 @@
 		</init-param>
 	</servlet>
 
-  	<error-page>
-	  <error-code>404</error-code>
-	  <location>index.jspl</location>
-	</error-page>
-
 </web-app>
