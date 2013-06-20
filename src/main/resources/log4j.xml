@@ -15,5 +15,5 @@
 		<level value="info" />
 		<appender-ref ref="STDOUT" />
 	</root>
-	
+
 </log4j:configuration>
