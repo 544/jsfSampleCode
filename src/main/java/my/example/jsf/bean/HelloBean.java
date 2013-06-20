@@ -1,12 +1,12 @@
-package my.example.jsf.model;
+package my.example.jsf.bean;
 
 import java.io.Serializable;
 
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
 
-@ManagedBean
-@SessionScoped
+@Component
+@Scope("session")
 public class HelloBean implements Serializable {
 
 	private static final long serialVersionUID = 1L;
