@@ -1,5 +1,6 @@
-create table SAMPLE (
-  id int,
-  name Varchar2(255) ,
-  info varchar2(255)
-)
+CREATE  TABLE `sample` (
+	  `id` INT NOT NULL ,
+	  `name` VARCHAR(45) NULL ,
+	  `info` VARCHAR(45) NULL COMMENT 'info' ,
+	  PRIMARY KEY (`id`) );
+
