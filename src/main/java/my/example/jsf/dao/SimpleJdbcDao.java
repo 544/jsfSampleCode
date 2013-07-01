@@ -27,7 +27,7 @@ import org.springframework.stereotype.Service;
 public class SimpleJdbcDao {
 
 	/** 実行時に強制的にSQLファイルを読みなおすかフラグのデフォルト値*/
-	private static final boolean FORCE_READ_SQL_FLG_DEFALUT = false;
+	private static final boolean FORCE_READ_SQL_FLG_DEFALUT = true; //TODO 変更があったらSQLファイルを再読み込むようにしたい。
 
 	/**
 	 * データソース 接続先はApplicationContextにて定義
@@ -55,9 +55,8 @@ public class SimpleJdbcDao {
 		// jdbctemplateの初期化
 		this.jdbcTemplate = new NamedParameterJdbcTemplate(dataSource);
 
-		// SQLファイルの事前読み込み
+		//TODO  SQLファイルの事前読み込み
 
-//		Thread.currentThread().getContextClassLoader().
 	}
 
 	// ===========  SQLファイル読み込み部分
