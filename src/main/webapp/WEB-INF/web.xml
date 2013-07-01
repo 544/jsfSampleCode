@@ -16,6 +16,11 @@
 		<servlet-name>Faces Servlet</servlet-name>
 		<servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
 		<load-on-startup>1</load-on-startup>
+		<!-- Windowsでjettyがファイルロックをすることを回避 -->
+		<init-param>
+			<param-name>useFileMappedBuffer</param-name>
+			<param-value>false</param-value>
+		</init-param>
 	</servlet>
 
 	<!-- Faces Servlet Mapping -->
