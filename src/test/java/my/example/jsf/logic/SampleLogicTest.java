@@ -10,13 +10,13 @@ public class SampleLogicTest {
 	public void test() {
 		ApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
 		SampleLogic target = ctx.getBean(SampleLogic.class);
-		target.select();
+		target.selectAll();
 
-		target.delete();
+//		target.delete();
+//
+//		target.insert();
 
-		target.insert();
-
-		target.select();
+		target.selectAll();
 //		fail("まだ実装されていません");
 	}
 

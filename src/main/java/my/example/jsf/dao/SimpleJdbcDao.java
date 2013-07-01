@@ -157,7 +157,7 @@ public class SimpleJdbcDao {
 	 * @param params
 	 * @return
 	 */
-	public int update(String filename, HashMap<String, Object> params) {
+	public int update(String filename, Map<String, Object> params) {
 
 		return jdbcTemplate.update(readQuery(filename), params);
 

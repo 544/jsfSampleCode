@@ -1,1 +1,1 @@
-DELETE FROM SAMPLE;
+DELETE FROM SAMPLE where id = :id;

@@ -15,10 +15,9 @@ public class SampleLogic {
 	@Autowired
 	private SimpleJdbcDao dao;
 
-	public List<Map<String, Object>> select(){
+	public List<Map<String, Object>> selectAll() {
 
-		String sql = "SEL_SAMPLE.sql";
-		List<Map<String, Object>> result = dao.query(sql, new HashMap<String, Object>());
+		List<Map<String, Object>> result = dao.query("SEL_SAMPLE.sql", new HashMap<String, Object>());
 
 		for (Object object : result) {
 			System.out.println(object.toString());
@@ -27,27 +26,22 @@ public class SampleLogic {
 		return result;
 	}
 
-	public int delete() {
-		String sql = "DEL_SAMPLE.sql";
-		int rowcnt = dao.update(sql, new HashMap<String, Object>());
+	public int delete(Map<String, Object> param) {
+		int rowcnt = dao.update("DEL_SAMPLE.sql", param);
 		System.out.println(rowcnt);
 		return rowcnt;
 	}
 
-	public int insert() {
-		String sql = "INS_SAMPLE.sql";
-		HashMap<String, Object> params = new HashMap<String, Object>();
-		params.put("id", 1);
-		params.put("name", "山田");
-		params.put("info", "太郎");
-
-
-		int rowcnt = dao.update(sql, params );
+	public int insert(Map<String, Object> param) {
+		int rowcnt = dao.update("INS_SAMPLE.sql", param);
 		System.out.println(rowcnt);
 		return rowcnt;
-
-
 	}
 
+	public int update(Map<String, Object> param) {
+		int rowcnt = dao.update("UPD_SAMPLE.sql", param);
+		System.out.println(rowcnt);
+		return rowcnt;
+	}
 
 }
