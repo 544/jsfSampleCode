@@ -1,1 +1,1 @@
-select * from sample;
+select * from sample order by id;

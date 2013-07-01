@@ -11,8 +11,8 @@
 		<meta name="Keywords"
 			content="*** キーワード ***,*** キーワード ***,*** キーワード ***" />
 		<title>*** タイトル ***</title>
-		<link rel="stylesheet" href="./css/main.css" type="text/css"
-			media="screen,tv" />
+		<link rel="stylesheet" href="./css/main.css" type="text/css" media="screen,tv" />
+		<link rel="stylesheet" href="./css/corderTable.css" type="text/css" media="screen,tv" />
 	</head>
 	<body jsfc="h:body" >
 		<div id="wrapper">
@@ -49,17 +49,24 @@
 					<h2>CRUDデモ</h2>
 
 					<form id="mainForm"  jsfc="h:form" >
-						<table border="1">
-							<tr style="background: Navy; color: white">
-								<th>id</th>
-								<th>name</th>
-								<th>info</th>
-							</tr>
+						<table class="coder">
+							<thead>
+								<tr style="background: Navy; color: white">
+									<th></th>
+									<th>Id</th>
+									<th>Name</th>
+									<th>Info</th>
+									<th></th>
+								</tr>
+							</thead>
 							<tbody>
 								<tr jsfc="ui:repeat" id="table1" value="#{mainAction.list}" var="item" varStatus="status">
 									<td>
-										<span jsfc="h:outputText" value="#{item.id}" />
-										<input type="text" jsfc="h:inputHidden" value="#{item.id}" />
+										<input class="btn blue" type="submit" jsfc="h:commandButton" value="削除"  action="#{mainAction.remove(item)}" />
+									</td>
+									<td align="center">
+										<span  jsfc="h:outputText" value="#{item.id}" />
+										<input size="3" type="text" jsfc="h:inputHidden" value="#{item.id}" />
 									</td>
 									<td>
 										<input type="text" jsfc="h:inputText" value="#{item.name}" />
@@ -68,13 +75,13 @@
 										<input type="text" jsfc="h:inputText" value="#{item.info}" />
 									</td>
 									<td>
-										<input type="submit" jsfc="h:commandButton" value="○"  action="#{mainAction.edit(item)}" />
-										<input type="submit" jsfc="h:commandButton" value="ー"  action="#{mainAction.remove(item)}" />
+										<input class="btn blue" type="submit" jsfc="h:commandButton" value="変更"  action="#{mainAction.edit(item)}" />
 									</td>
 								</tr>
 								<tr>
+									<td></td>
 									<td>
-										<input type="text" jsfc="h:inputText"  value="#{mainAction.newData['id']}" />
+										<input size="3" type="text" jsfc="h:inputText"  value="#{mainAction.newData['id']}" />
 									</td>
 									<td>
 										<input type="text" jsfc="h:inputText"  value="#{mainAction.newData['name']}" />
@@ -83,7 +90,7 @@
 										<input type="text" jsfc="h:inputText"  value="#{mainAction.newData['info']}" />
 									</td>
 									<td>
-										<input type="submit" jsfc="h:commandButton" value="＋" action="#{mainAction.add}" />
+										<input class="btn blue" type="submit" jsfc="h:commandButton" value="追加" action="#{mainAction.add}" />
 									</td>
 								</tr>
 							</tbody>
