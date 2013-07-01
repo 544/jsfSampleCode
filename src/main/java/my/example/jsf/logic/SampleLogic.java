@@ -17,7 +17,7 @@ public class SampleLogic {
 
 	public List<Map<String, Object>> select(){
 
-		String sql = "SELECT * FROM SAMPLE;";
+		String sql = "SEL_SAMPLE.sql";
 		List<Map<String, Object>> result = dao.query(sql, new HashMap<String, Object>());
 
 		for (Object object : result) {
@@ -28,14 +28,14 @@ public class SampleLogic {
 	}
 
 	public int delete() {
-		String sql = "DELETE FROM SAMPLE;";
+		String sql = "DEL_SAMPLE.sql";
 		int rowcnt = dao.update(sql, new HashMap<String, Object>());
 		System.out.println(rowcnt);
 		return rowcnt;
 	}
 
 	public int insert() {
-		String sql = "INSERT INTO SAMPLE VALUES ( :id, :name, :info);";
+		String sql = "INS_SAMPLE.sql";
 		HashMap<String, Object> params = new HashMap<String, Object>();
 		params.put("id", 1);
 		params.put("name", "山田");

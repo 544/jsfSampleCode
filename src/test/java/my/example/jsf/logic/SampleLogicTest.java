@@ -10,6 +10,7 @@ public class SampleLogicTest {
 	public void test() {
 		ApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
 		SampleLogic target = ctx.getBean(SampleLogic.class);
+		target.select();
 
 		target.delete();
 
