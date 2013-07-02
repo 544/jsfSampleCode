@@ -37,6 +37,33 @@
 	<!-- ===================================================================== -->
 
 	<!-- ===================================================================== -->
+	<!-- P R O F I L E S -->
+	<!-- ===================================================================== -->
+	<profiles>
+		<!-- cloudbees -->
+		<profile>
+			<id>cloudbees</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-war-plugin</artifactId>
+						<version>2.2</version>
+						<configuration>
+							<webResources>
+								<resource>
+									<directory>/release/cloudbees</directory>
+									<!-- override the destination directory for this resource -->
+									<targetPath>WEB-INF</targetPath>
+								</resource>
+							</webResources>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+	<!-- ===================================================================== -->
 	<!-- B U I L D -->
 	<!-- ===================================================================== -->
 
@@ -81,6 +108,16 @@
 			<groupId>javax.servlet</groupId>
 			<artifactId>javax.servlet-api</artifactId>
 			<version>3.1.0</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet.jsp</groupId>
+			<artifactId>javax.servlet.jsp-api</artifactId>
+			<version>2.3.1</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.el</groupId>
+			<artifactId>javax.el-api</artifactId>
+			<version>3.0.0</version>
 		</dependency>
 
 		<!-- JSF -->
