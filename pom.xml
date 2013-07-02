@@ -52,7 +52,7 @@
 						<configuration>
 							<webResources>
 								<resource>
-									<directory>/release/cloudbees</directory>
+									<directory>release/cloudbees</directory>
 									<!-- override the destination directory for this resource -->
 									<targetPath>WEB-INF</targetPath>
 								</resource>
