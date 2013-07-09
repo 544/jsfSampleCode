@@ -1,6 +1,7 @@
 package my.example.jsf.dao;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.HashMap;
@@ -25,6 +26,8 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class SimpleJdbcDao {
+
+	private static final String DEFAULT_SQLFILE_PATH = "sql";
 
 	/** 実行時に強制的にSQLファイルを読みなおすかフラグのデフォルト値*/
 	private static final boolean FORCE_READ_SQL_FLG_DEFALUT = true; //TODO 変更があったらSQLファイルを再読み込むようにしたい。
@@ -113,7 +116,8 @@ public class SimpleJdbcDao {
 	private String readQueryByFile(String filename) {
 
 		// ファイルからSQLクエリ読み込み
-		InputStream myStream = Thread.currentThread().getContextClassLoader().getResourceAsStream("sql/" + filename);
+		InputStream myStream = Thread.currentThread().getContextClassLoader()
+				.getResourceAsStream(new File(DEFAULT_SQLFILE_PATH, filename).toString());
 		if (myStream == null) {
 			throw new RuntimeException("ファイルがないよ。" + filename);
 		}
