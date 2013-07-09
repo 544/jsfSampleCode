@@ -54,7 +54,7 @@
 								<resource>
 									<directory>release/cloudbees</directory>
 									<!-- override the destination directory for this resource -->
-									<targetPath>WEB-INF</targetPath>
+									<targetPath>WEB-INF/classes</targetPath>
 								</resource>
 							</webResources>
 						</configuration>
@@ -104,21 +104,6 @@
 
 		<!-- Web -->
 		<!-- Servlet/JSP API -->
-		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>javax.servlet-api</artifactId>
-			<version>3.1.0</version>
-		</dependency>
-		<dependency>
-			<groupId>javax.servlet.jsp</groupId>
-			<artifactId>javax.servlet.jsp-api</artifactId>
-			<version>2.3.1</version>
-		</dependency>
-		<dependency>
-			<groupId>javax.el</groupId>
-			<artifactId>javax.el-api</artifactId>
-			<version>3.0.0</version>
-		</dependency>
 
 		<!-- JSF -->
 		<dependency>
