@@ -37,7 +37,7 @@ public final class CsvReader {
 			throw new RuntimeException(e);
 		}
 
-		List<Map<String, Object>> result = new ArrayList<>();
+		List<Map<String, Object>> result = new ArrayList<Map<String, Object>>();
 
 		// リストが2行未満（ヘッダしかない）の場合は、空リストを返す。
 		if (data.size() < 2) {
@@ -45,7 +45,7 @@ public final class CsvReader {
 		}
 
 		// 一行目はヘッダ
-		List<String> keys = new ArrayList<>();
+		List<String> keys = new ArrayList<String>();
 		StringTokenizer st = new StringTokenizer(data.remove(0), DEFALT_SEPARATOR);
 		while(st.hasMoreTokens()) {
 			keys.add(st.nextToken());
@@ -53,14 +53,16 @@ public final class CsvReader {
 
 		// 二行目以降はデータ
 		for (String string : data) {
-			Map<String,Object> rowdata = new HashMap<>();
+			Map<String,Object> rowdata = new HashMap<String,Object>();
 			StringTokenizer st2 = new StringTokenizer(string, DEFALT_SEPARATOR);
 
+			//TODO spritで組み直しが必要d
 			for (String key : keys) {
 				if (!st2.hasMoreTokens()) {
 					throw new RuntimeException("データ不正：" + string);
 				}
 				rowdata.put(key, st2.nextToken());
+				System.out.println(rowdata);
 			}
 			result.add(rowdata);
 		}
