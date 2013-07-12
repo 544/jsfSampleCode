@@ -21,7 +21,7 @@ import org.junit.Test;
 
 public class CsvReaderTest {
 
-//	@Test
+	@Test
 	public void test2() {
 
 		List<Map<String, Object>> result = CsvReader.read(new File("poke.csv"));
@@ -34,7 +34,7 @@ public class CsvReaderTest {
 			System.out.println("");
 		}
 	}
-	
+
 
 	@Test
 	public void test() {
@@ -70,7 +70,7 @@ public class CsvReaderTest {
 		// 検証
 		Map<String, Object> rec1 = result.get(0);
 		assertEquals("1", rec1.get("id"));
-		assertEquals("ほげ", rec1.get("name"));
+		assertEquals("", rec1.get("name"));
 		assertEquals("ぴよ", rec1.get("info"));
 
 	}
