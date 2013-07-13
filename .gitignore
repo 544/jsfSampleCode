@@ -7,3 +7,5 @@
 target
 
 target/*.*
+
+src/test/resources/test.h2.db

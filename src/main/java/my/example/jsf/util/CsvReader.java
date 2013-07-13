@@ -6,6 +6,7 @@ import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.StringTokenizer;
@@ -52,17 +53,20 @@ public final class CsvReader {
 		}
 
 		// 二行目以降はデータ
-		for (String string : data) {
+		for (String rowStr : data) {
 			Map<String,Object> rowdata = new HashMap<String,Object>();
-			StringTokenizer st2 = new StringTokenizer(string, DEFALT_SEPARATOR);
 
-			//TODO spritで組み直しが必要d
-			for (String key : keys) {
-				if (!st2.hasMoreTokens()) {
-					throw new RuntimeException("データ不正：" + string);
-				}
-				rowdata.put(key, st2.nextToken());
-				System.out.println(rowdata);
+			String[] splitedRowStr = rowStr.split(DEFALT_SEPARATOR);
+			if (splitedRowStr.length != keys.size() ){
+				throw new RuntimeException("データ不正：" + rowStr);
+			}
+
+			Iterator<String> it = keys.iterator();
+			for (int i = 0; i < splitedRowStr.length; i++) {
+				String string = splitedRowStr[i];
+
+				rowdata.put(it.next(), string);
+
 			}
 			result.add(rowdata);
 		}
