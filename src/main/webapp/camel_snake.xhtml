@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+	<body jsfc="h:body" >
+		<ui:composition template="/WEB-INF/template/main_template.xhtml">
+			<ui:define name="title">メイン画面</ui:define>
+			<ui:define name="contents">
+					<!-- コンテンツここから -->
+					<!-- パン屑リスト -->
+					<p class="topic-path">
+						<a href="index.html">Home</a> &gt; case converter
+					</p>
+
+					<!-- コンテンツ ここから -->
+					<h2>文字列形式を変換</h2>
+
+					<form id="mainForm"  jsfc="h:form" >
+
+						<h5>入力</h5>
+						<br/>
+						<textarea id="input" jsfc="h:inputTextarea" value="${camelSnakeAction.input}" style="width: 400pt;height: 100pt;" />
+						<br/>
+						<input type="submit" value="変換" jsfc="h:commandButton" action="${camelSnakeAction.submit}"/>
+						<br/>
+						<h3>キャメルケース</h3>
+						<br/>
+						<textarea id="camel" jsfc="h:inputTextarea" value="${camelSnakeAction.camel}" style="width: 400pt;height: 100pt;"/>
+						<br/>
+						<h3>スネークケース</h3>
+						<br/>
+						<textarea id="snake" jsfc="h:inputTextarea" value="${camelSnakeAction.snake}" style="width: 400pt;height: 100pt;"/>
+
+					</form>
+
+				</ui:define>
+			</ui:composition>
+	</body>
+</html>
