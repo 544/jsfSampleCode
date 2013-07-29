@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+	<body jsfc="h:body" >
+		<ui:composition template="/WEB-INF/template/main_template.xhtml">
+			<ui:define name="title">メイン画面</ui:define>
+			<ui:define name="contents">
+					<!-- コンテンツここから -->
+					<!-- パン屑リスト -->
+					<p class="topic-path">
+						<a href="index.html">Home</a> &gt; CRUDアプリ
+					</p>
+
+					<!-- コンテンツ ここから -->
+					<h2>CRUDデモ</h2>
+
+					<form id="mainForm"  jsfc="h:form" >
+						<table class="coder">
+							<thead>
+								<tr style="background: Navy; color: white">
+									<th></th>
+									<th>Id</th>
+									<th>Name</th>
+									<th>Info</th>
+									<th></th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr jsfc="ui:repeat" id="table1" value="#{mainAction.list}" var="item" varStatus="status">
+									<td>
+										<input class="btn blue" type="submit" jsfc="h:commandButton" value="削除"  action="#{mainAction.remove(item)}" />
+									</td>
+									<td align="center">
+										<span  jsfc="h:outputText" value="#{item.id}" />
+										<input size="3" type="text" jsfc="h:inputHidden" value="#{item.id}" />
+									</td>
+									<td>
+										<input type="text" jsfc="h:inputText" value="#{item.name}" />
+									</td>
+									<td>
+										<input type="text" jsfc="h:inputText" value="#{item.info}" />
+									</td>
+									<td>
+										<input class="btn blue" type="submit" jsfc="h:commandButton" value="変更"  action="#{mainAction.edit(item)}" />
+									</td>
+								</tr>
+								<tr>
+									<td></td>
+									<td>
+										<input size="3" type="text" jsfc="h:inputText"  value="#{mainAction.newData['id']}" />
+									</td>
+									<td>
+										<input type="text" jsfc="h:inputText"  value="#{mainAction.newData['name']}" />
+									</td>
+									<td>
+										<input type="text" jsfc="h:inputText"  value="#{mainAction.newData['info']}" />
+									</td>
+									<td>
+										<input class="btn blue" type="submit" jsfc="h:commandButton" value="追加" action="#{mainAction.add}" />
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</form>
+
+				</ui:define>
+			</ui:composition>
+	</body>
+</html>

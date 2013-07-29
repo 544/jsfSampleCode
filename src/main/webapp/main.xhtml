@@ -3,138 +3,21 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets">
-	<head>
-		<meta http-equiv="Content-Style-Type" content="text/css" />
-		<meta http-equiv="Content-Script-Type" content="text/javascript" />
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		<meta name="Description" content="*** ページの概要 ***" />
-		<meta name="Keywords" content="tokuninaiyo" />
-		<title>JSFのデモ</title>
-		<link rel="stylesheet" href="./css/main.css" type="text/css" media="screen,tv" />
-		<link rel="stylesheet" href="./css/corderTable.css" type="text/css" media="screen,tv" />
-	</head>
 	<body jsfc="h:body" >
-		<div id="wrapper">
-			<div id="header">
-				<!-- 見出し
-				<h1>*** 見出し[キーワード] ***</h1>-->
-				<!-- タイトル -->
-				<p class="logo">
-					<a href="index.html">*** 544's Examples ***</a>
-				</p>
-				<!-- 概要 -->
-				<p class="description">jsfでの検証実装あれこれ</p>
-			</div>
-			<!-- / header end -->
-			<div id="globalnavi">
-				<!-- グローバルナビゲーション -->
-				<ul>
-					<li><a href="index.html">Home</a></li>
-<!--
- 					<li><a href="#">*** リンク ***</a></li>
-					<li><a href="#">*** リンク ***</a></li>
-					<li><a href="#">*** リンク ***</a></li>
-					<li><a href="#">*** リンク ***</a></li>
- -->
-				</ul>
-			</div>
-			<!-- / globalnavi end -->
-			<div id="container">
-				<div id="contents">
+		<ui:composition template="/WEB-INF/template/main_template.xhtml">
+			<ui:define name="title">メイン画面</ui:define>
+			<ui:define name="contents">
+					<!-- コンテンツここから -->
 					<!-- パン屑リスト -->
 					<p class="topic-path">
-						<a href="index.html">Home</a> &gt; CRUDアプリ
+						<a href="index.html">Home</a> &gt;
 					</p>
 
 					<!-- コンテンツ ここから -->
-					<h2>CRUDデモ</h2>
+					<h2>JSFであれこれ</h2>
+					JSFでいろいろと遊ぼう
 
-					<form id="mainForm"  jsfc="h:form" >
-						<table class="coder">
-							<thead>
-								<tr style="background: Navy; color: white">
-									<th></th>
-									<th>Id</th>
-									<th>Name</th>
-									<th>Info</th>
-									<th></th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr jsfc="ui:repeat" id="table1" value="#{mainAction.list}" var="item" varStatus="status">
-									<td>
-										<input class="btn blue" type="submit" jsfc="h:commandButton" value="削除"  action="#{mainAction.remove(item)}" />
-									</td>
-									<td align="center">
-										<span  jsfc="h:outputText" value="#{item.id}" />
-										<input size="3" type="text" jsfc="h:inputHidden" value="#{item.id}" />
-									</td>
-									<td>
-										<input type="text" jsfc="h:inputText" value="#{item.name}" />
-									</td>
-									<td>
-										<input type="text" jsfc="h:inputText" value="#{item.info}" />
-									</td>
-									<td>
-										<input class="btn blue" type="submit" jsfc="h:commandButton" value="変更"  action="#{mainAction.edit(item)}" />
-									</td>
-								</tr>
-								<tr>
-									<td></td>
-									<td>
-										<input size="3" type="text" jsfc="h:inputText"  value="#{mainAction.newData['id']}" />
-									</td>
-									<td>
-										<input type="text" jsfc="h:inputText"  value="#{mainAction.newData['name']}" />
-									</td>
-									<td>
-										<input type="text" jsfc="h:inputText"  value="#{mainAction.newData['info']}" />
-									</td>
-									<td>
-										<input class="btn blue" type="submit" jsfc="h:commandButton" value="追加" action="#{mainAction.add}" />
-									</td>
-								</tr>
-							</tbody>
-						</table>
-					</form>
-
-					<!-- コンテンツ ここまで -->
-				</div>
-				<!-- / contents end -->
-			</div>
-			<!-- / container end -->
-
-			<div id="sidebar">
-				<!-- サイドバー ここから -->
-				<p class="sidetitle">*** カテゴリ ***</p>
-				<ul class="localnavi">
-					<li><a href="index.html">Home</a></li>
-					<li><a href="#">*** リンク ***</a></li>
-					<li><a href="#">*** リンク ***</a></li>
-					<li><a href="#">*** リンク ***</a></li>
-					<li><a href="#">*** リンク ***</a></li>
-				</ul>
-
-				<p class="sidetitle">*** カテゴリ ***</p>
-				<ul class="localnavi">
-					<li><a href="#">*** リンク ***</a></li>
-					<li><a href="#">*** リンク ***</a></li>
-					<li><a href="#">*** リンク ***</a></li>
-					<li><a href="#">*** リンク ***</a></li>
-					<li><a href="#">*** リンク ***</a></li>
-				</ul>
-				<!-- サイドバー ここまで -->
-			</div>
-			<!-- / sidebar end -->
-			<div id="footer">
-				<!-- コピーライト -->
-				<p>Copyright, Nothing All Rights Reserved.</p>
-				<p id="cds">
-					CSS Template <a href="http://www.css-designsample.com/">CSSデザインサンプル</a>
-				</p>
-			</div>
-			<!-- / footer end -->
-		</div>
-		<!-- / wrapper end -->
+				</ui:define>
+			</ui:composition>
 	</body>
 </html>
