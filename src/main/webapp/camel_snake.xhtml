@@ -22,7 +22,9 @@
 						<br/>
 						<textarea id="input" jsfc="h:inputTextarea" value="${camelSnakeAction.input}" style="width: 400pt;height: 100pt;" />
 						<br/>
-						<input type="submit" value="変換" jsfc="h:commandButton" action="${camelSnakeAction.submit}"/>
+						<input type="submit" value="変換" jsfc="h:commandButton" action="${camelSnakeAction.submit}">
+							<f:ajax execute="input" render="snake"/>
+						</input>
 						<br/>
 						<h3>キャメルケース</h3>
 						<br/>
